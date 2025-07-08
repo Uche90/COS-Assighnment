@@ -1,20 +1,59 @@
-START
-    INPUT student_score
+Pseudocode: COS-Assignment by Obi Promise Uche
+Reg no: 20204924028
 
-    IF student_score >= 70 AND student_score <= 100
-        grade = "A"
-    ELSE IF student_score >= 60 AND student_score <= 69
-        grade = "B"
-    ELSE IF student_score >= 50 AND student_score <= 59
-        grade = "C"
-    ELSE IF student_score >= 45 AND student_score <= 49
-        grade = "D"
-    ELSE IF student_score >= 40 AND student_score <= 44
-        grade = "E"
-    ELSE IF student_score < 40 AND student_score >= 0
-        grade = "F"
-    ELSE
-        grade = "Invalid score"
 
-    OUTPUT grade
-END
+Function Get_Grade_Point(score):
+    If score is less than 0 or greater than 100:
+        Return None
+    Else If score >= 70:
+        Return 5.00, "A"
+    Else If score >= 60:
+        Return 4.00, "B"
+    Else If score >= 50:
+        Return 3.00, "C"
+    Else If score >= 45:
+        Return 2.00, "D"
+    Else If score >= 40:
+        Return 1.00, "E"
+    Else:
+        Return 0.00, "F"
+
+Function Collect_Scores():
+    Create empty dictionary called subject_scores
+    Define list of subjects
+
+    Print "Input your scores:"
+
+    Repeat until all inputs are valid:
+        For each subject in subject list:
+            Ask user to input score
+            If score is between 0 and 100:
+                Save score in subject_scores
+            Else:
+                Prompt again until valid
+        If any input is invalid (non-integer):
+            Show error and restart input
+
+    Return subject_scores
+
+Function Calculate_GPA(subject_scores):
+    Create empty list called grade_points
+    Print "User Result:"
+
+    For each subject and score in subject_scores:
+        Use Get_Grade_Point to get grade_point and grade
+[7/8, 2:41 PM] Askme: If grade_point is None:
+            Print subject with invalid score
+        Else:
+            Add grade_point to grade_points
+            Print subject with corresponding grade
+
+    If grade_points list is not empty:
+        Calculate GPA = sum of grade_points ÷ number of subjects
+        Print GPA (formatted to 2 decimal places)
+    Else:
+        Print "No valid scores to calculate GPA."
+
+Main:
+    Call Collect_Scores and store result in scores
+    Call Calculate_GPA with scores
