@@ -42,7 +42,7 @@ Function Calculate_GPA(subject_scores):
 
     For each subject and score in subject_scores:
         Use Get_Grade_Point to get grade_point and grade
-[7/8, 2:41 PM] Askme: If grade_point is None:
+        If grade_point is None:
             Print subject with invalid score
         Else:
             Add grade_point to grade_points
